@@ -1,0 +1,22 @@
+{
+  "name": "jcounter",
+  "version": "1.0.0",
+  "description": "サーバー名変えるやつ",
+  "main": "./lib/index.js",
+  "scripts": {
+    "build": "tsc",
+    "run": "node ./lib/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^11.2.1",
+    "dotenv": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^8.0.53",
+    "typescript": "^2.6.1",
+    "typings": "^2.1.1"
+  }
+}
