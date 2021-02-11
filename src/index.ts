@@ -8,13 +8,14 @@ class JCounter {
     private token: string;
     private client = new Discord.Client();
 
-    public Run(): boolean {
+    public run(): boolean {
         const serverName = this.makeServerName();
-        this.SetGuildName(serverName);
+        this.setGuildName(serverName);
+        console.log('おわり');
         return true;
     }
 
-    private SetGuildName(serverName: string): boolean {
+    private setGuildName(serverName: string): boolean {
         this.client.login(this.token).then(() => {
             const guild = this.client.guilds.first();
             console.log("logined!");
@@ -22,15 +23,17 @@ class JCounter {
                 console.log("server name changed!");
                 this.client.destroy().then(() => {
                     console.log("connection closed.");
+                    process.exit();
                 });
+                console.log("おわおわり")
             }).catch((e) => {
                 console.log("server name change failed", e);
                 this.client.destroy().then(() => {
                     console.log("connection closed.");
                 });
             });
-        }).catch((e)=>{
-            console.log("login failed.",e);
+        }).catch((e) => {
+            console.log("login failed.", e);
             this.client.destroy().then(() => {
                 console.log("connection closed.");
             });
@@ -50,11 +53,11 @@ class JCounter {
 
 let env = process.env.NODE_DISCORD_TOKEN
 if (typeof env !== 'string') {
-        console.log("tokenネエヨ");
-        process.exit();
-}else{
+    console.log("tokenネエヨ");
+    process.exit();
+} else {
     const bot = new JCounter(env);
-    bot.Run();
+    bot.run();
 }
 
 
