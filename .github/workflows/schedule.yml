@@ -4,7 +4,7 @@ name: daily run
 on:
   schedule:
 
-    - cron:  '46 21 * * *'
+    - cron:  '47 12 * * *'
 jobs:
   run:
     runs-on: ubuntu-latest
